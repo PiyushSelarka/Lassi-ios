@@ -12,6 +12,6 @@ import CropViewController
 open class RandomString: NSObject {
     
     open func getRandomString() -> String {
-        return ""
+        return "After added pod file"
     }
 }
