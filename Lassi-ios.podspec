@@ -13,5 +13,6 @@ This CocoaPods library helps you perform calculation.
   spec.swift_version = "4.2"
   spec.source        = { :git => "https://github.com/PiyushSelarka/Lassi-ios.git", :tag => "#{spec.version}" }
   spec.source_files  = "Lassi-ios/**/*.{h,m,swift}"
+  spec.dependency "CropViewController"
 
 end
