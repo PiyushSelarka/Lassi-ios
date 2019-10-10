@@ -433,7 +433,7 @@ extension PhotosVC: CropViewControllerDelegate {
         cropController.aspectRatioPreset = AlbumsVC.shared.setCropAspectRatio ?? CropViewControllerAspectRatioPreset.presetOriginal
         cropController.aspectRatioLockEnabled = true // The crop box is locked to the aspect ratio and can't be resized away from it
         cropController.resetAspectRatioEnabled = false // When tapping 'reset', the aspect ratio will NOT be reset back to default
-        appdelegate.window?.rootViewController?.present(cropController, animated: true, completion: nil)
+        appDelegate.window?.rootViewController?.present(cropController, animated: true, completion: nil)
     }
     
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {

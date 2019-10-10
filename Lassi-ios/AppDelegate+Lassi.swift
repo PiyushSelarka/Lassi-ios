@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  AppDelegate+Lassi.swift
 //  MediaPicker
 //
 //  Created by mac-00015 on 01/06/19.
@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegateLassi: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 

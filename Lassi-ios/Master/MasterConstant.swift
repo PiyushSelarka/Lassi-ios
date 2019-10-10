@@ -17,7 +17,7 @@ let CScreenWidth = CScreenSize.width
 let CScreenHeight = CScreenSize.height
 
 let CSharedApplication = UIApplication.shared
-let appDelegate = CSharedApplication.delegate as! AppDelegate
+let appDelegate = CSharedApplication.delegate as! AppDelegateLassi
 var CTopMostViewController:UIViewController
 {
     get { return CSharedApplication.topMostViewController }

@@ -181,7 +181,7 @@ extension AlbumsVC {
             if #available(iOS 11.0, *) {
                 documentPicker.allowsMultipleSelection = true;
             }
-            appdelegate.window?.rootViewController?.present(documentPicker, animated: true)
+            appDelegate.window?.rootViewController?.present(documentPicker, animated: true)
             
         } else {
             
@@ -235,7 +235,7 @@ extension AlbumsVC {
             let leftBarButton = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(btnCancelClicked(_:)))
             leftBarButton.tintColor = barButtonColor
             self.navigationItem.setLeftBarButton(leftBarButton, animated: true)
-            appdelegate.window?.rootViewController?.present(navigation, animated: true, completion: nil)
+            appDelegate.window?.rootViewController?.present(navigation, animated: true, completion: nil)
             
             self.selectedItem.removeAll()
             self.selectedAudioItem.removeAll()

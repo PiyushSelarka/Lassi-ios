@@ -308,7 +308,7 @@ extension PhotoCameraVC: CropViewControllerDelegate {
     public func updateImageViewWithImage(_ image: UIImage, fromCropViewController cropViewController: CropViewController) {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
         cropViewController.dismiss(animated: false) {
-            appdelegate.window?.rootViewController?.dismiss(animated: true, completion: nil)
+            appDelegate.window?.rootViewController?.dismiss(animated: true, completion: nil)
         }
     }
 }

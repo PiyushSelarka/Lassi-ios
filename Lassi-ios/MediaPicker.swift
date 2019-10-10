@@ -12,8 +12,6 @@ import PhotosUI
 import MediaPlayer
 import CropViewController
 
-let appdelegate = UIApplication.shared.delegate as! AppDelegate
-
 // MARK:- Protocol
 // MARK:-
 protocol MediaPickerDelegate: class {
