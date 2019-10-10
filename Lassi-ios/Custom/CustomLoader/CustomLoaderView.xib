@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomLoaderView" customModule="MediaPicker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZ0-Eb-RjU">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jom-wa-DbO" userLabel="viewBaground">
+                    <rect key="frame" x="145" y="291" width="85" height="85"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="okm-vQ-y36">
+                            <rect key="frame" x="24" y="11.5" width="37" height="37"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="color" red="1" green="0.22352941179999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </activityIndicatorView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kq4-AL-VQq">
+                            <rect key="frame" x="5" y="58.5" width="75" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="1" green="0.22352941179999999" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Kq4-AL-VQq" secondAttribute="trailing" constant="5" id="G5Z-CS-fgO"/>
+                        <constraint firstItem="okm-vQ-y36" firstAttribute="centerX" secondItem="jom-wa-DbO" secondAttribute="centerX" id="b1q-6G-nRH"/>
+                        <constraint firstItem="Kq4-AL-VQq" firstAttribute="leading" secondItem="jom-wa-DbO" secondAttribute="leading" constant="5" id="gqF-Uf-RqS"/>
+                        <constraint firstItem="okm-vQ-y36" firstAttribute="centerY" secondItem="jom-wa-DbO" secondAttribute="centerY" multiplier="0.7" id="nye-PP-FWt"/>
+                        <constraint firstItem="Kq4-AL-VQq" firstAttribute="top" secondItem="okm-vQ-y36" secondAttribute="bottom" constant="10" id="qkO-NS-iB9"/>
+                        <constraint firstAttribute="width" secondItem="jom-wa-DbO" secondAttribute="height" multiplier="1:1" id="zoM-wb-VoQ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="SZ0-Eb-RjU" secondAttribute="trailing" id="F3A-wO-o69"/>
+                <constraint firstItem="jom-wa-DbO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Igq-uF-ehR"/>
+                <constraint firstItem="jom-wa-DbO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="gr6-dW-5rM"/>
+                <constraint firstItem="jom-wa-DbO" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" multiplier="0.226667" id="ia9-sk-ULV"/>
+                <constraint firstItem="SZ0-Eb-RjU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="omp-YM-vJ3"/>
+                <constraint firstItem="SZ0-Eb-RjU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qON-YU-QeS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="SZ0-Eb-RjU" secondAttribute="bottom" id="sfw-wZ-aFS"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="activityLoader" destination="okm-vQ-y36" id="UbE-Cq-qES"/>
+                <outlet property="viewBackground" destination="jom-wa-DbO" id="oM4-5p-5gn"/>
+            </connections>
+            <point key="canvasLocation" x="134" y="116"/>
+        </view>
+    </objects>
+</document>
