@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CropViewController
 
 open class RandomString: NSObject {
     
