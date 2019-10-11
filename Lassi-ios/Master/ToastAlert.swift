@@ -105,7 +105,11 @@ extension ToastAlert {
     
     func showToastAlert(position:ToastAlert.ToastAlertPosition , message:String) {
         
-        if let toastAlertView = appDelegate.window?.viewWithTag(200) {
+        guard let window = appWindow else {
+            return
+        }
+        
+        if let toastAlertView = window.viewWithTag(200) {
             ToastAlert.timer.invalidate()
             toastAlertView.removeAllSubviews()
             toastAlertView.removeFromSuperview()
@@ -117,9 +121,14 @@ extension ToastAlert {
     }
     
     private func resizeToastalertView(position:ToastAlertPosition) {
-        appDelegate.window?.addSubview(ToastAlert.toastAlertView)
         
-        NSLayoutConstraint(item: ToastAlert.toastAlertView, attribute: .centerX, relatedBy: .equal, toItem: appDelegate.window, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
+        guard let window = appWindow else {
+            return
+        }
+        
+        window.addSubview(ToastAlert.toastAlertView)
+        
+        NSLayoutConstraint(item: ToastAlert.toastAlertView, attribute: .centerX, relatedBy: .equal, toItem: window, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
         
         NSLayoutConstraint(item: ToastAlert.toastAlertView, attribute: .width, relatedBy: .lessThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: CScreenWidth - 10.0 - 10.0).isActive = true
         
@@ -146,7 +155,7 @@ extension ToastAlert {
             
         }
         
-        NSLayoutConstraint(item: ToastAlert.toastAlertView, attribute: toastAlertViewAttribute, relatedBy: .equal, toItem: appDelegate.window, attribute: appWindowAttribute, multiplier: 1.0, constant: constant).isActive = true
+        NSLayoutConstraint(item: ToastAlert.toastAlertView, attribute: toastAlertViewAttribute, relatedBy: .equal, toItem: window, attribute: appWindowAttribute, multiplier: 1.0, constant: constant).isActive = true
         
         ToastAlert.toastAlertView.addSubview(ToastAlert.lblMessage)
         

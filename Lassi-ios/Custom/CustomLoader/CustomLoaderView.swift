@@ -30,8 +30,13 @@ class CustomLoaderView: UIView {
     }
     
     func startLoading() {
+        
+        guard let window = appWindow else {
+            return
+        }
+        
         self.frame = CGRect(x: 0, y: 0, width: CScreenWidth, height: CScreenHeight)
-        appDelegate.window?.addSubview(self)
+        window.addSubview(self)
         self.activityLoader.startAnimating()
     }
     

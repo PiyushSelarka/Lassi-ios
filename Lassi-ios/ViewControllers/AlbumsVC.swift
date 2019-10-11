@@ -15,7 +15,7 @@ class AlbumsVC: UIViewController {
     
     @IBOutlet weak var collVAlbums: UICollectionView! {
         didSet {
-            self.collVAlbums.register(UINib(nibName: "AlbumCollVCell", bundle: nil), forCellWithReuseIdentifier: "AlbumCell")
+            self.collVAlbums.register(UINib(nibName: "AlbumCollVCell", bundle: appBundle), forCellWithReuseIdentifier: "AlbumCollVCell")
         }
     }
     @IBOutlet weak var lblNoDataFound: UILabel!
@@ -147,7 +147,8 @@ class AlbumsVC: UIViewController {
     }
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: "AlbumsVC", bundle: nil)
+        
+        super.init(nibName: "AlbumsVC", bundle: appBundle)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -181,7 +182,12 @@ extension AlbumsVC {
             if #available(iOS 11.0, *) {
                 documentPicker.allowsMultipleSelection = true;
             }
-            appDelegate.window?.rootViewController?.present(documentPicker, animated: true)
+            
+            guard let window = appWindow else {
+                return
+            }
+            
+            window.rootViewController?.present(documentPicker, animated: true)
             
         } else {
             
@@ -235,7 +241,12 @@ extension AlbumsVC {
             let leftBarButton = UIBarButtonItem(image: UIImage(named: "close"), style: .plain, target: self, action: #selector(btnCancelClicked(_:)))
             leftBarButton.tintColor = barButtonColor
             self.navigationItem.setLeftBarButton(leftBarButton, animated: true)
-            appDelegate.window?.rootViewController?.present(navigation, animated: true, completion: nil)
+            
+            guard let window = appWindow else {
+                return
+            }
+            
+            window.rootViewController?.present(navigation, animated: true, completion: nil)
             
             self.selectedItem.removeAll()
             self.selectedAudioItem.removeAll()
@@ -256,9 +267,25 @@ extension AlbumsVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollVCell", for: indexPath) as? AlbumCollVCell
         
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCell", for: indexPath) as? AlbumCollVCell {
-           
+        if cell == nil {
+            cell = appBundle?.loadNibNamed("AlbumCollVCell", owner: nil, options: nil)?.first as? AlbumCollVCell
+        }
+        
+        
+//        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollVCell", for: indexPath) as? AlbumCollVCell {
+        
+            
+            
+//            customCell = (CustomTableViewCell *)[tableView dequeueReusableCellWithIdentifier:customCellID];
+//            if (customCell == nil) {
+//                NSArray *nibs = [resourcesBundle loadNibNamed:emptyCellID owner:nil options:nil];
+//                customCell = [nibs objectAtIndex:0];
+//            }
+        
+        if let cell = cell {
             if mediaType == MediaPicker.MediaType.AUDIO {
                 cell.setMedia()
             } else {
@@ -266,13 +293,16 @@ extension AlbumsVC: UICollectionViewDelegate, UICollectionViewDataSource {
             }
             return cell
         }
+           
+        
+//        }
         
         return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let photosVC = PhotosVC(nibName: "PhotosVC", bundle: nil)
+        let photosVC = PhotosVC(nibName: "PhotosVC", bundle: appBundle)
        
         if mediaType == MediaPicker.MediaType.AUDIO {
             let query = MPMediaQuery()
@@ -491,10 +521,10 @@ extension AlbumsVC {
             ToastAlert.shared.showToastAlert(position: .bottom, message: "Already selected max items.")
         } else {
             if mediaType == MediaPicker.MediaType.VIDEO {
-                let videoCameraVC = VideoCameraVC(nibName: "VideoCameraVC", bundle: nil)
+                let videoCameraVC = VideoCameraVC(nibName: "VideoCameraVC", bundle: appBundle)
                 self.navigation.present(videoCameraVC, animated: true, completion: nil)
             } else {
-                let photoCameraVC = PhotoCameraVC(nibName: "PhotoCameraVC", bundle: nil)
+                let photoCameraVC = PhotoCameraVC(nibName: "PhotoCameraVC", bundle: appBundle)
                 photoCameraVC.croppingStyle = setCropType
                 photoCameraVC.aspectRatioPreset = setCropAspectRatio
                 self.navigation.present(photoCameraVC, animated: true, completion: nil)

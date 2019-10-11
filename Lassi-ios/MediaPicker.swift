@@ -18,15 +18,17 @@ protocol MediaPickerDelegate: class {
     func didFinishPickingItems(_ path: [URL])
 }
 
-final class MediaPicker {
+open class MediaPicker {
     
-    private static var mediaPicker: MediaPicker = {
-        let mediaPicker = MediaPicker()
-        return mediaPicker
-    }()
-    static var shared: MediaPicker {
-        return mediaPicker
-    }
+    public static var shared = MediaPicker()
+//    private static var mediaPicker: MediaPicker = {
+//        let mediaPicker = MediaPicker()
+//        return mediaPicker
+//    }()
+//
+//    static var shared: MediaPicker {
+//        return mediaPicker
+//    }
     
     weak var delegate: MediaPickerDelegate?
 }
@@ -34,14 +36,16 @@ final class MediaPicker {
 // MARK:- Declare file extension and enum
 // MARK:-
 extension MediaPicker {
-    enum LassiOption {
+    
+    public enum LassiOption {
         case CAMERA_AND_GALLERY, CAMERA, GALLERY
     }
-    enum MediaType {
+    
+    public enum MediaType {
         case IMAGE, VIDEO, AUDIO, DOC
     }
     
-    enum MediaFormat {
+    public enum MediaFormat {
         case PNG
         case JPEG
         case JPG
@@ -117,7 +121,7 @@ extension MediaPicker {
 // MARK:-
 extension MediaPicker {
     
-    func fetchMedia(
+     open func fetchMedia(
         optionType : MediaPicker.LassiOption,
         maxCount: Int = 1,
         gridSize: Int = 2,

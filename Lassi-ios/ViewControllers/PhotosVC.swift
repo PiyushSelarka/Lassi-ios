@@ -16,7 +16,7 @@ class PhotosVC: UIViewController {
     @IBOutlet weak var collVPhotos: UICollectionView! {
         // collection view Photos cell register
         didSet {
-            self.collVPhotos.register(UINib(nibName: "PhotoCollVCell", bundle: nil), forCellWithReuseIdentifier: "PhotoCell")
+            self.collVPhotos.register(UINib(nibName: "PhotoCollVCell", bundle: appBundle), forCellWithReuseIdentifier: "PhotoCell")
         }
     }
     @IBOutlet weak var lblNoItemFound: UILabel!
@@ -433,7 +433,12 @@ extension PhotosVC: CropViewControllerDelegate {
         cropController.aspectRatioPreset = AlbumsVC.shared.setCropAspectRatio ?? CropViewControllerAspectRatioPreset.presetOriginal
         cropController.aspectRatioLockEnabled = true // The crop box is locked to the aspect ratio and can't be resized away from it
         cropController.resetAspectRatioEnabled = false // When tapping 'reset', the aspect ratio will NOT be reset back to default
-        appDelegate.window?.rootViewController?.present(cropController, animated: true, completion: nil)
+        
+        guard let window = appWindow else {
+            return
+        }
+        
+        window.rootViewController?.present(cropController, animated: true, completion: nil)
     }
     
     func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {

@@ -41,12 +41,12 @@
 		4866467C234F03960053CDD8 /* VideoPreviewVC.swift.zip in Resources */ = {isa = PBXBuildFile; fileRef = 48664662234F03960053CDD8 /* VideoPreviewVC.swift.zip */; };
 		4866467D234F03960053CDD8 /* VideoPreviewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48664663234F03960053CDD8 /* VideoPreviewVC.xib */; };
 		4866467E234F03960053CDD8 /* AlbumCollVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48664665234F03960053CDD8 /* AlbumCollVCell.swift */; };
-		4866467F234F03960053CDD8 /* AlbumCollVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48664666234F03960053CDD8 /* AlbumCollVCell.xib */; };
 		48664680234F03960053CDD8 /* PhotoCollVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48664667234F03960053CDD8 /* PhotoCollVCell.swift */; };
 		48664681234F03960053CDD8 /* PhotoCollVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48664668234F03960053CDD8 /* PhotoCollVCell.xib */; };
 		48664682234F03960053CDD8 /* CustomLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4866466B234F03960053CDD8 /* CustomLoaderView.swift */; };
 		48664683234F03960053CDD8 /* CustomLoaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4866466C234F03960053CDD8 /* CustomLoaderView.xib */; };
-		48664687234F040B0053CDD8 /* AppDelegate+Lassi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48664686234F040B0053CDD8 /* AppDelegate+Lassi.swift */; };
+		48664687234F040B0053CDD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48664686234F040B0053CDD8 /* AppDelegate.swift */; };
+		486646B3234F1AB70053CDD8 /* AlbumCollVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48664666234F03960053CDD8 /* AlbumCollVCell.xib */; };
 		D449287B31AFAF7380609A6D /* Pods_Lassi_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F4F5D261888B74AF4520A6 /* Pods_Lassi_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +80,7 @@
 		48664668234F03960053CDD8 /* PhotoCollVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCollVCell.xib; sourceTree = "<group>"; };
 		4866466B234F03960053CDD8 /* CustomLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLoaderView.swift; sourceTree = "<group>"; };
 		4866466C234F03960053CDD8 /* CustomLoaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLoaderView.xib; sourceTree = "<group>"; };
-		48664686234F040B0053CDD8 /* AppDelegate+Lassi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Lassi.swift"; sourceTree = "<group>"; };
+		48664686234F040B0053CDD8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC951C00DA4DB836DFB9760E /* Pods-Lassi-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lassi-ios.release.xcconfig"; path = "Target Support Files/Pods-Lassi-ios/Pods-Lassi-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +117,7 @@
 		4866463F234EF3C20053CDD8 /* Lassi-ios */ = {
 			isa = PBXGroup;
 			children = (
-				48664686234F040B0053CDD8 /* AppDelegate+Lassi.swift */,
+				48664686234F040B0053CDD8 /* AppDelegate.swift */,
 				4866464F234F03870053CDD8 /* MediaPicker.swift */,
 				48664640234EF3C20053CDD8 /* Lassi_ios.h */,
 				48664641234EF3C20053CDD8 /* Info.plist */,
@@ -285,7 +285,7 @@
 				48664678234F03960053CDD8 /* PhotosVC.xib in Resources */,
 				4866467A234F03960053CDD8 /* VideoCameraVC.xib in Resources */,
 				48664681234F03960053CDD8 /* PhotoCollVCell.xib in Resources */,
-				4866467F234F03960053CDD8 /* AlbumCollVCell.xib in Resources */,
+				486646B3234F1AB70053CDD8 /* AlbumCollVCell.xib in Resources */,
 				4866467D234F03960053CDD8 /* VideoPreviewVC.xib in Resources */,
 				48664683234F03960053CDD8 /* CustomLoaderView.xib in Resources */,
 			);
@@ -351,7 +351,7 @@
 				4866466F234F03960053CDD8 /* ExtensionUIColor.swift in Sources */,
 				48664675234F03960053CDD8 /* PhotoCameraVC.swift in Sources */,
 				48664673234F03960053CDD8 /* AlbumsVC.swift in Sources */,
-				48664687234F040B0053CDD8 /* AppDelegate+Lassi.swift in Sources */,
+				48664687234F040B0053CDD8 /* AppDelegate.swift in Sources */,
 				48664672234F03960053CDD8 /* ToastAlert.swift in Sources */,
 				4866467E234F03960053CDD8 /* AlbumCollVCell.swift in Sources */,
 				48664682234F03960053CDD8 /* CustomLoaderView.swift in Sources */,

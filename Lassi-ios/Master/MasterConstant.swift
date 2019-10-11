@@ -17,7 +17,14 @@ let CScreenWidth = CScreenSize.width
 let CScreenHeight = CScreenSize.height
 
 let CSharedApplication = UIApplication.shared
-let appDelegate = CSharedApplication.delegate as! AppDelegateLassi
+//let appDelegate = CSharedApplication.delegate as! AppDelegate
+
+let appWindow = CSharedApplication.delegate?.window as? UIWindow
+
+let test = UIApplication.shared.delegate
+
+let appBundle = Bundle(identifier: "com.Lassi-ios")
+
 var CTopMostViewController:UIViewController
 {
     get { return CSharedApplication.topMostViewController }
