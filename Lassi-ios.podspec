@@ -1,5 +1,6 @@
 Pod::Spec.new do |spec|
 
+
   spec.name         = "Lassi-ios"
   spec.version      = "0.0.6"
   spec.summary      = "A CocoaPods library written in Swift"
@@ -12,9 +13,10 @@ This CocoaPods library helps you perform calculation.
   spec.ios.deployment_target = "12.1"
   spec.swift_version = "4.2"
   spec.source        = { :git => "https://github.com/PiyushSelarka/Lassi-ios.git", :tag => "#{spec.version}" }
-  spec.source_files = 'Pod/Classes/**/*.{swift}'
-  s.resource_bundles = {
-    'Lassi-ios' => ['Pod/Classes/**/*.{storyboard,xib}']
+  spec.source_files = 'Lassi-ios/**/*.{swift}'
+
+  spec.resource_bundles = {
+    'MyFramework' => ['Lassi-ios/**/*.{storyboard,xib,xcassets,json,imageset,png}']
   }
 
   spec.dependency "CropViewController"
