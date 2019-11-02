@@ -150,7 +150,7 @@ class AlbumsVC: UIViewController {
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
-        let podBundle = Bundle(for: AlbumsVC.self)
+        let podBundle = Bundle(identifier: "Lassi-ios")
         super.init(nibName: "AlbumsVC", bundle: podBundle)
     }
     

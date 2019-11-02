@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Lassi-ios'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'A CocoaPods library written in Swift'
   s.description      = <<-DESC
 This CocoaPods library helps you perform calculation.
