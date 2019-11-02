@@ -17,10 +17,7 @@ class PhotosVC: UIViewController {
         // collection view Photos cell register
         didSet {
             
-            let podBundle = Bundle(for: PhotoCollVCell.self)
-            let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
-            let bundle = Bundle(url: bundleURL!)
-            
+            let bundle = Bundle(for: PhotoCollVCell.self)
             self.collVPhotos.register(UINib(nibName: "PhotoCollVCell", bundle: bundle), forCellWithReuseIdentifier: "PhotoCell")
         }
     }
