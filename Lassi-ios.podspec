@@ -1,24 +1,25 @@
-Pod::Spec.new do |spec|
-
-
-  spec.name         = "Lassi-ios"
-  spec.version      = "1.0.0"
-  spec.summary      = "A CocoaPods library written in Swift"
-  spec.description  = <<-DESC
+Pod::Spec.new do |s|
+  s.name             = 'Lassi-ios'
+  s.version          = '1.0.1'
+  s.summary          = 'A CocoaPods library written in Swift'
+  s.description      = <<-DESC
 This CocoaPods library helps you perform calculation.
-                   DESC
-  spec.homepage     = "https://github.com/PiyushSelarka/Lassi-ios"
-  spec.license      = { :type => "MIT", :file => "LICENSE" }
-  spec.author       = { "PiyushSelarka" => "piyushselarka.mi@gmail.com" }
-  spec.ios.deployment_target = "12.1"
-  spec.swift_version = "4.2"
-  spec.source        = { :git => "https://github.com/PiyushSelarka/Lassi-ios.git", :tag => "#{spec.version}" }
+                       DESC
 
-  spec.source_files = 'Lassi-ios/**/*.{swift}'
-
-  spec.resource_bundles = { 'Resources' => ['Lassi-ios/**/*.{storyboard,xib,xcassets,json,imageset,png}'] }
+  s.homepage         = 'https://github.com/PiyushSelarka/Lassi-ios'
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.author           = { 'PiyushSelarka' => 'piyushselarka.mi@gmail.com' }
+  s.source           = { :git => 'https://github.com/PiyushSelarka/Lassi-ios.git', :tag => s.version.to_s }
 
 
-  spec.dependency "CropViewController"
+  s.ios.deployment_target = '12.1'
+  s.swift_version = '4.2'
 
+  s.source_files = 'Lassi-ios/**/*.{swift}'
+  
+  s.resource_bundles = {
+     'Lassi-ios' => ['Lassi-ios/**/*.{storyboard,xib,xcdatamodeld}']
+  }
+
+  s.dependency "CropViewController"
 end
