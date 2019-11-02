@@ -52,6 +52,7 @@ extension UIView {
 extension UIView {
     class func initFromNib<T: UIView>() -> T {
         
+        let appBundle = Bundle(identifier: "com.Lassi-ios")
         guard let nib = appBundle?.loadNibNamed(String(describing: self), owner: nil, options: nil)?.first as? T else {
             return UIView() as! T
         }

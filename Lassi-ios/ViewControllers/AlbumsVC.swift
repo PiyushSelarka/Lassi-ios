@@ -15,7 +15,12 @@ class AlbumsVC: UIViewController {
     
     @IBOutlet weak var collVAlbums: UICollectionView! {
         didSet {
-            self.collVAlbums.register(UINib(nibName: "AlbumCollVCell", bundle: appBundle), forCellWithReuseIdentifier: "AlbumCollVCell")
+            
+            let podBundle = Bundle(for: AlbumCollVCell.self)
+            let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
+            let bundle = Bundle(url: bundleURL!)
+            
+            self.collVAlbums.register(UINib(nibName: "AlbumCollVCell", bundle: bundle), forCellWithReuseIdentifier: "AlbumCollVCell")
         }
     }
     @IBOutlet weak var lblNoDataFound: UILabel!
@@ -148,7 +153,11 @@ class AlbumsVC: UIViewController {
     
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
-        super.init(nibName: "AlbumsVC", bundle: appBundle)
+        let podBundle = Bundle(for: AlbumsVC.self)
+        
+        let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
+        let bundle = Bundle(url: bundleURL!)
+        super.init(nibName: "AlbumsVC", bundle: bundle)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -271,7 +280,12 @@ extension AlbumsVC: UICollectionViewDelegate, UICollectionViewDataSource {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCollVCell", for: indexPath) as? AlbumCollVCell
         
         if cell == nil {
-            cell = appBundle?.loadNibNamed("AlbumCollVCell", owner: nil, options: nil)?.first as? AlbumCollVCell
+            
+            let podBundle = Bundle(for: AlbumCollVCell.self)
+            let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
+            let bundle = Bundle(url: bundleURL!)
+            
+            cell = bundle?.loadNibNamed("AlbumCollVCell", owner: nil, options: nil)?.first as? AlbumCollVCell
         }
         
         
@@ -302,7 +316,11 @@ extension AlbumsVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let photosVC = PhotosVC(nibName: "PhotosVC", bundle: appBundle)
+        let podBundle = Bundle(for: PhotosVC.self)
+        let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
+        let bundle = Bundle(url: bundleURL!)
+        
+        let photosVC = PhotosVC(nibName: "PhotosVC", bundle: bundle)
        
         if mediaType == MediaPicker.MediaType.AUDIO {
             let query = MPMediaQuery()
@@ -521,10 +539,19 @@ extension AlbumsVC {
             ToastAlert.shared.showToastAlert(position: .bottom, message: "Already selected max items.")
         } else {
             if mediaType == MediaPicker.MediaType.VIDEO {
-                let videoCameraVC = VideoCameraVC(nibName: "VideoCameraVC", bundle: appBundle)
+                let podBundle = Bundle(for: VideoCameraVC.self)
+                let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
+                let bundle = Bundle(url: bundleURL!)
+                
+                let videoCameraVC = VideoCameraVC(nibName: "VideoCameraVC", bundle: bundle)
                 self.navigation.present(videoCameraVC, animated: true, completion: nil)
             } else {
-                let photoCameraVC = PhotoCameraVC(nibName: "PhotoCameraVC", bundle: appBundle)
+                
+                let podBundle = Bundle(for: PhotoCameraVC.self)
+                let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
+                let bundle = Bundle(url: bundleURL!)
+                
+                let photoCameraVC = PhotoCameraVC(nibName: "PhotoCameraVC", bundle: bundle)
                 photoCameraVC.croppingStyle = setCropType
                 photoCameraVC.aspectRatioPreset = setCropAspectRatio
                 self.navigation.present(photoCameraVC, animated: true, completion: nil)
