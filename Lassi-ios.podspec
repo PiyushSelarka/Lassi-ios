@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "Lassi-ios"
-  spec.version      = "0.0.7"
+  spec.version      = "0.0.8"
   spec.summary      = "A CocoaPods library written in Swift"
   spec.description  = <<-DESC
 This CocoaPods library helps you perform calculation.
@@ -13,6 +13,7 @@ This CocoaPods library helps you perform calculation.
   spec.ios.deployment_target = "12.1"
   spec.swift_version = "4.2"
   spec.source        = { :git => "https://github.com/PiyushSelarka/Lassi-ios.git", :tag => "#{spec.version}" }
+
   spec.source_files = 'Lassi-ios/**/*.{swift}'
 
   spec.resource_bundles = {
