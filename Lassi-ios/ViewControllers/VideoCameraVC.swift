@@ -130,10 +130,7 @@ extension VideoCameraVC: AVCaptureFileOutputRecordingDelegate {
     func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
         if error == nil {
             
-            let podBundle = Bundle(for: VideoPreviewVC.self)
-            let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
-            let bundle = Bundle(url: bundleURL!)
-            
+            let bundle = Bundle(for: VideoPreviewVC.self)
             let videoPreviewVC = VideoPreviewVC(nibName: "VideoPreviewVC", bundle: bundle)
             videoPreviewVC.videoURL = outputFileURL
             self.present(videoPreviewVC, animated: false, completion: nil)

@@ -24,7 +24,7 @@ let appWindow = CSharedApplication.delegate?.window as? UIWindow
 let test = UIApplication.shared.delegate
 
 //let appBundle = Bundle(identifier: "com.Lassi-ios")
-let frameworkName = "Lassi-ios"
+//let frameworkName = "Lassi-ios"
 
 var CTopMostViewController:UIViewController
 {

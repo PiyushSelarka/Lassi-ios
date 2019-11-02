@@ -17,10 +17,7 @@ class AlbumsVC: UIViewController {
         didSet {
             
             let podBundle = Bundle(for: AlbumCollVCell.self)
-            let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
-            let bundle = Bundle(url: bundleURL!)
-            
-            self.collVAlbums.register(UINib(nibName: "AlbumCollVCell", bundle: bundle), forCellWithReuseIdentifier: "AlbumCollVCell")
+            self.collVAlbums.register(UINib(nibName: "AlbumCollVCell", bundle: podBundle), forCellWithReuseIdentifier: "AlbumCollVCell")
         }
     }
     @IBOutlet weak var lblNoDataFound: UILabel!
@@ -154,10 +151,7 @@ class AlbumsVC: UIViewController {
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         
         let podBundle = Bundle(for: AlbumsVC.self)
-        
-        let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
-        let bundle = Bundle(url: bundleURL!)
-        super.init(nibName: "AlbumsVC", bundle: bundle)
+        super.init(nibName: "AlbumsVC", bundle: podBundle)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -281,11 +275,8 @@ extension AlbumsVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         if cell == nil {
             
-            let podBundle = Bundle(for: AlbumCollVCell.self)
-            let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
-            let bundle = Bundle(url: bundleURL!)
-            
-            cell = bundle?.loadNibNamed("AlbumCollVCell", owner: nil, options: nil)?.first as? AlbumCollVCell
+            let bundle = Bundle(for: AlbumCollVCell.self)
+            cell = bundle.loadNibNamed("AlbumCollVCell", owner: nil, options: nil)?.first as? AlbumCollVCell
         }
         
         
@@ -316,10 +307,7 @@ extension AlbumsVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let podBundle = Bundle(for: PhotosVC.self)
-        let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
-        let bundle = Bundle(url: bundleURL!)
-        
+        let bundle = Bundle(for: PhotosVC.self)
         let photosVC = PhotosVC(nibName: "PhotosVC", bundle: bundle)
        
         if mediaType == MediaPicker.MediaType.AUDIO {
@@ -539,17 +527,12 @@ extension AlbumsVC {
             ToastAlert.shared.showToastAlert(position: .bottom, message: "Already selected max items.")
         } else {
             if mediaType == MediaPicker.MediaType.VIDEO {
-                let podBundle = Bundle(for: VideoCameraVC.self)
-                let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
-                let bundle = Bundle(url: bundleURL!)
-                
+                let bundle = Bundle(for: VideoCameraVC.self)
                 let videoCameraVC = VideoCameraVC(nibName: "VideoCameraVC", bundle: bundle)
                 self.navigation.present(videoCameraVC, animated: true, completion: nil)
             } else {
                 
-                let podBundle = Bundle(for: PhotoCameraVC.self)
-                let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
-                let bundle = Bundle(url: bundleURL!)
+                let bundle = Bundle(for: PhotoCameraVC.self)
                 
                 let photoCameraVC = PhotoCameraVC(nibName: "PhotoCameraVC", bundle: bundle)
                 photoCameraVC.croppingStyle = setCropType
