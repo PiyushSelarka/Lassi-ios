@@ -16,7 +16,12 @@ class PhotosVC: UIViewController {
     @IBOutlet weak var collVPhotos: UICollectionView! {
         // collection view Photos cell register
         didSet {
-            self.collVPhotos.register(UINib(nibName: "PhotoCollVCell", bundle: appBundle), forCellWithReuseIdentifier: "PhotoCell")
+            
+            let podBundle = Bundle(for: PhotoCollVCell.self)
+            let bundleURL = podBundle.url(forResource: frameworkName, withExtension: "bundle")
+            let bundle = Bundle(url: bundleURL!)
+            
+            self.collVPhotos.register(UINib(nibName: "PhotoCollVCell", bundle: bundle), forCellWithReuseIdentifier: "PhotoCell")
         }
     }
     @IBOutlet weak var lblNoItemFound: UILabel!
